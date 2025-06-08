@@ -1,100 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bikash Das - Portfolio</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f9f9f9;
-      color: #222;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #1a73e8;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    header h1 {
-      margin: 0;
-      font-weight: 700;
-      font-size: 2.5rem;
-    }
-    main {
-      max-width: 600px;
-      margin: 2rem auto;
-      padding: 1rem 2rem;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-    }
-    h2 {
-      color: #1a73e8;
-      border-bottom: 2px solid #1a73e8;
-      padding-bottom: 0.25rem;
-    }
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    ul li {
-      background: #e8f0fe;
-      margin: 0.5rem 0;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      font-weight: 600;
-    }
-    a {
-      color: #1a73e8;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      color: #666;
-      font-size: 0.9rem;
-      margin-top: 3rem;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bikash Das - Slideshow Portfolio</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9;
+    margin: 0; padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .slideshow-container {
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    position: relative;
+    padding: 2rem;
+  }
+  .slide {
+    display: none;
+    animation: fade 0.5s ease-in-out;
+  }
+  .slide.active {
+    display: block;
+  }
+  h1, h2 {
+    color: #1a73e8;
+  }
+  p, ul {
+    color: #222;
+    font-size: 1.1rem;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  ul li {
+    background: #e8f0fe;
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+  }
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  button {
+    background: #1a73e8;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  button:hover {
+    background: #155ab6;
+  }
+  @keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+</style>
 </head>
 <body>
-  <header>
+<div class="slideshow-container">
+
+  <div class="slide active" id="slide1">
     <h1>Bikash Das</h1>
-  </header>
-  <main>
-    <section>
-      <h2>About Me</h2>
-      <p>Hi, I’m <strong>Bikash Das</strong>, a dedicated professional with strong skills in customer handling, teamwork, situational management, and leadership. I excel at creating positive experiences and leading teams effectively in challenging environments. Passionate about growth and delivering results with a professional attitude.</p>
-    </section>
+    <h2>About Me</h2>
+    <p>Hi, I’m <strong>Bikash Das</strong>, a dedicated professional with strong skills in customer handling, teamwork, situational management, and leadership. I excel at creating positive experiences and leading teams effectively in challenging environments. Passionate about growth and delivering results with a professional attitude.</p>
+  </div>
 
-    <section>
-      <h2>Skills</h2>
-      <ul>
-        <li>Customer Handling</li>
-        <li>Team Player</li>
-        <li>Situation Handling</li>
-        <li>Leadership</li>
-      </ul>
-    </section>
+  <div class="slide" id="slide2">
+    <h2>Skills</h2>
+    <ul>
+      <li>Customer Handling</li>
+      <li>Team Player</li>
+      <li>Situation Handling</li>
+      <li>Leadership</li>
+    </ul>
+  </div>
 
-    <section>
-      <h2>Connect with Me</h2>
-      <p>
-        <a href="https://www.linkedin.com/in/bikash-das-568a0b196?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">LinkedIn</a> | 
-        <a href="mailto:Bikash.das2000@outlook.com">Email</a>
-      </p>
-    </section>
-  </main>
-  <footer>
-    <p>© 2025 Bikash Das</p>
-  </footer>
+  <div class="slide" id="slide3">
+    <h2>Connect with Me</h2>
+    <p>
+      <a href="https://www.linkedin.com/in/bikash-das-568a0b196?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">LinkedIn</a> | 
+      <a href="mailto:Bikash.das2000@outlook.com">Email</a>
+    </p>
+  </div>
+
+  <div class="nav-buttons">
+    <button id="prevBtn">Previous</button>
+    <button id="nextBtn">Next</button>
+  </div>
+
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
+
+  const showSlide = (index) => {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  };
+
+  document.getElementById('prevBtn').addEventListener('click', () => {
+    currentSlide = (currentSlide === 0) ? slides.length -1 : currentSlide - 1;
+    showSlide(currentSlide);
+  });
+
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    currentSlide = (currentSlide === slides.length -1) ? 0 : currentSlide + 1;
+    showSlide(currentSlide);
+  });
+</script>
 </body>
 </html>
