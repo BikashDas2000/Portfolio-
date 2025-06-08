@@ -1,94 +1,120 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bikash Das - Slideshow Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bikash Das - Portfolio</title>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f9f9f9;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
     }
-    .slideshow-container {
-      background: white;
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(120deg, #e0f7fa, #ffffff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      background: #fff;
       width: 90%;
-      max-width: 600px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
       overflow: hidden;
       position: relative;
-      padding: 2rem;
+      padding: 20px;
+      animation: fadeIn 1s ease-in-out;
     }
     .slide {
       display: none;
-      animation: fade 0.5s ease-in-out;
     }
     .slide.active {
       display: block;
+      animation: fadeSlide 0.5s ease;
+    }
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    img.profile {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 4px solid #007bff;
     }
     h1, h2 {
-      color: #1a73e8;
-    }
-    p, ul {
-      color: #222;
-      font-size: 1.1rem;
+      color: #007bff;
+      margin-bottom: 10px;
     }
     ul {
       list-style: none;
       padding-left: 0;
     }
     ul li {
-      background: #e8f0fe;
-      margin: 0.5rem 0;
-      padding: 0.5rem 1rem;
+      margin: 5px 0;
+      padding: 8px;
+      background: #f0f8ff;
       border-radius: 5px;
-      font-weight: 600;
     }
-    .nav-buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 2rem;
+    .language-selector {
+      position: absolute;
+      top: 15px;
+      right: 15px;
     }
-    button {
-      background: #1a73e8;
-      color: white;
-      border: none;
-      padding: 0.6rem 1.5rem;
+    select {
+      padding: 5px 10px;
       border-radius: 5px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s;
+      border: 1px solid #ccc;
     }
-    button:hover {
-      background: #155ab6;
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
-    @keyframes fade {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
   </style>
 </head>
 <body>
-  <div class="slideshow-container">
-
-    <div class="slide active" id="slide1">
-      <h1>Bikash Das</h1>
-      <h2>About Me</h2>
-      <p>Hi, I’m <strong>Bikash Das</strong>, a dedicated hospitality professional with a strong track record in customer handling, teamwork, situational problem solving, and leadership. I’m passionate about delivering excellent guest experiences and driving team performance.</p>
+  <div class="container">
+    <div class="language-selector">
+      <select id="language">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+        <option value="as">অসমীয়া</option>
+      </select>
     </div>
-
+    <div class="slide active" id="slide1">
+      <img src="profile.jpg" alt="Bikash Das" class="profile" />
+      <h1 data-en="Bikash Das" data-hi="बिकाश दास" data-as="বিকাশ দাস">Bikash Das</h1>
+      <p data-en="Hospitality professional with experience in front office operations, team coordination and customer service."
+         data-hi="अतिथि सत्कार विशेषज्ञ जिनके पास ग्राहक सेवा और टीम संचालन का अनुभव है।"
+         data-as="অতিথি সেৱাৰ অভিজ্ঞতাৰ সৈতে এখন অভিজ্ঞ হস্পিটালিটি পেচাদাৰী।">
+        Hospitality professional with experience in front office operations, team coordination and customer service.
+      </p>
+    </div>
     <div class="slide" id="slide2">
-      <h2>Skills</h2>
+      <h2 data-en="Skills" data-hi="कौशल" data-as="দক্ষতা">Skills</h2>
       <ul>
         <li>Customer Handling</li>
         <li>Team Player</li>
@@ -96,17 +122,15 @@
         <li>Leadership</li>
       </ul>
     </div>
-
     <div class="slide" id="slide3">
-      <h2>Education</h2>
+      <h2 data-en="Education" data-hi="शिक्षा" data-as="শিক্ষা">Education</h2>
       <ul>
         <li>Secondary School — Pachim Guwahati Mahavidyalaya (2017–2019)</li>
         <li>Bachelor of Hospitality — Institute of Advanced Management (2019–2022)</li>
       </ul>
     </div>
-
     <div class="slide" id="slide4">
-      <h2>Experience</h2>
+      <h2 data-en="Experience" data-hi="अनुभव" data-as="অভিজ্ঞতা">Experience</h2>
       <ul>
         <li>Front Office Senior Executive — Bougainvillea Retreat and Spa (Dec 2023 – Present)</li>
         <li>Front Office Executive — Hotel Ornate, Guwahati (Jan 2023 – Oct 2023)</li>
@@ -114,50 +138,49 @@
         <li>Internship/OJT — Fairmont Jaipur, Rajasthan (Dec 2020 – Dec 2021)</li>
       </ul>
     </div>
-
     <div class="slide" id="slide5">
-      <h2>Hobbies</h2>
+      <h2 data-en="Hobbies" data-hi="शौक" data-as="অভ্যাস">Hobbies</h2>
       <ul>
         <li>Indoor/Outdoor Games</li>
         <li>Singing</li>
         <li>Traveling</li>
       </ul>
     </div>
-
     <div class="slide" id="slide6">
-      <h2>Connect with Me</h2>
-      <p>
-        <a href="https://www.linkedin.com/in/bikash-das-568a0b196?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
-        <a href="mailto:Bikash.das2000@outlook.com">Email</a>
-      </p>
+      <h2 data-en="Contact" data-hi="संपर्क करें" data-as="যোগাযোগ কৰক">Contact</h2>
+      <p><a href="mailto:Bikash.das2000@outlook.com">Bikash.das2000@outlook.com</a></p>
+      <p><a href="https://www.linkedin.com/in/bikash-das-568a0b196" target="_blank">LinkedIn</a></p>
     </div>
-
     <div class="nav-buttons">
       <button id="prevBtn">Previous</button>
       <button id="nextBtn">Next</button>
     </div>
-
-  </div>
-
-  <script>
+  </div>  <script>
     const slides = document.querySelectorAll('.slide');
     let currentSlide = 0;
+    const langSelect = document.getElementById('language');
 
-    const showSlide = (index) => {
+    function showSlide(index) {
       slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
+        slide.classList.remove('active');
+        if (i === index) slide.classList.add('active');
       });
-    };
+    }
 
     document.getElementById('prevBtn').addEventListener('click', () => {
       currentSlide = (currentSlide === 0) ? slides.length - 1 : currentSlide - 1;
       showSlide(currentSlide);
     });
-
     document.getElementById('nextBtn').addEventListener('click', () => {
       currentSlide = (currentSlide === slides.length - 1) ? 0 : currentSlide + 1;
       showSlide(currentSlide);
     });
-  </script>
-</body>
+
+    langSelect.addEventListener('change', () => {
+      const lang = langSelect.value;
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      });
+    });
+  </script></body>
 </html>
